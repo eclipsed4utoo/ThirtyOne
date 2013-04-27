@@ -1,0 +1,80 @@
+﻿<Window x:Class="ThirtyOne.ViewCustomerOrders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:ThirtyOne"
+        Title="Customer Orders" 
+        Height="331" 
+        Width="405" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="ThreeDBorderWindow" 
+        ResizeMode="CanMinimize" 
+        Loaded="Window_Loaded" 
+        Background="{StaticResource MyWindowBackgroundBrush}" 
+        Closing="Window_Closing" 
+        Icon="/ThirtyOne;component/Images/logo.jpg">
+
+    <Grid>
+
+        <ComboBox 
+            x:Name="CustomerNameComboBox" 
+            Height="23" 
+            HorizontalAlignment="Left" 
+            DisplayMemberPath="{Binding Path=CustomerName}"
+            ItemsSource="{Binding}"
+            Margin="143,31,0,0" 
+            VerticalAlignment="Top" 
+            Width="150" 
+            SelectionChanged="CustomerNameComboBox_SelectionChanged" 
+            FontSize="14" />
+
+        <TextBlock 
+            Text="Customer Name:" 
+            Height="23" 
+            HorizontalAlignment="Left" 
+            Margin="48,33,0,0" 
+            VerticalAlignment="Top" />
+
+        <DataGrid 
+            x:Name="OrdersDataGrid"
+            AutoGenerateColumns="False" 
+            Height="190" 
+            HorizontalAlignment="Left" 
+            Margin="64,71,0,0"
+            VerticalAlignment="Top"
+            Width="277" 
+            AlternatingRowBackground="{StaticResource MyWindowBackgroundBrush}" 
+            ItemContainerStyle="{StaticResource DataGridRowItemStyle}"
+            CanUserReorderColumns="False" 
+            CanUserResizeColumns="False"
+            CanUserResizeRows="False" 
+            CanUserSortColumns="False" 
+            SelectionMode="Single" 
+            IsReadOnly="True" 
+            HeadersVisibility="Column">
+
+            <DataGrid.Columns>
+
+                <DataGridCheckBoxColumn 
+            		Header="Paid" 
+            		Width="40" 
+            		Binding="{Binding IsPaid}"
+            		IsReadOnly="True"/>
+
+                <DataGridTextColumn 
+            		Header="Order Date" 
+            		Width="100" 
+            		Binding="{Binding OrderDate, Converter={StaticResource dtConverter}}"
+            		IsReadOnly="True"/>
+
+                <DataGridTextColumn 
+            		Header="Order Total" 
+            		Width="*" 
+            		Binding="{Binding OrderTotal, Converter={StaticResource otConverter}}"
+            		IsReadOnly="True"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </Grid>
+</Window>

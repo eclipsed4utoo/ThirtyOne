@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="ThirtyOne.CommissionTotals"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="162" d:DesignWidth="219" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid>
+            <GroupBox Header="Commission Totals" Height="143" HorizontalAlignment="Left" Margin="12,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="200" BorderBrush="Black" BorderThickness="1">
+                <Grid>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="21,14,0,0" Name="textBlock1" Text="This Month:" VerticalAlignment="Top" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="33,51,0,0" Name="textBlock2" Text="This Year:" VerticalAlignment="Top" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="54,88,0,0" Name="textBlock3" Text="Total:" VerticalAlignment="Top" />
+                    <TextBlock x:Name="ThisYearTotal" Height="23" Margin="97,51,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="81.997" Foreground="#FF49A31B" FontWeight="Bold" />
+                    <TextBlock x:Name="Total" Height="23" Margin="97,88,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="81.997" Foreground="#FF49A31B" FontWeight="Bold" />
+                    <TextBlock x:Name="ThisMonthTotal" Height="23" Margin="97,14,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="81.997" d:LayoutOverrides="VerticalAlignment" Foreground="#FF49A31B" FontWeight="Bold" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,48 @@
+﻿<Window x:Class="ThirtyOne.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Thirty One - Jessica Alford" Height="483" Width="530" Icon="/ThirtyOne;component/Images/logo.jpg" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" WindowStyle="ThreeDBorderWindow" Background="{StaticResource MyWindowBackgroundBrush}" xmlns:my="clr-namespace:ThirtyOne" Activated="Window_Activated">
+    <Grid>
+        <Menu 
+            Height="23" 
+            HorizontalAlignment="Left" 
+            Name="MainMenu" 
+            VerticalAlignment="Top" 
+            Width="700">
+            
+            <MenuItem Header="File">
+                
+                <MenuItem Header="Exit" Click="MenuExit_Click" />
+                
+            </MenuItem>
+
+            <MenuItem Header="Customers">
+
+                <MenuItem Header="Add Customer" Click="AddCustomer_Click" />
+                
+                <MenuItem Header="View Customer Orders" Click="ViewCustomerOrders_Click" />
+
+            </MenuItem>
+
+            <MenuItem Header="Parties">
+
+                <MenuItem Header="New Party" Click="NewParty_Click" />
+
+                <MenuItem Header="View Party" Click="ViewParty_Click" />
+
+            </MenuItem>
+
+            <MenuItem Header="Orders">
+
+                <MenuItem Header="New Order" Click="NewOrder_Click" />
+
+                <MenuItem Header="View Orders" Click="ViewOrders_Click" />
+
+            </MenuItem>
+
+        </Menu>
+        <my:SalesTotalsControl Height="162" HorizontalAlignment="Left" Margin="24,274,0,0" x:Name="SalesTotalsControl" VerticalAlignment="Top" Width="218" />
+        <my:CommissionTotals HorizontalAlignment="Left" Margin="269,274,0,0" x:Name="CommissionTotalsControl" VerticalAlignment="Top" Height="162" Width="218" />
+        <my:UnpaidOrders HorizontalAlignment="Left" Margin="47,12,0,0" x:Name="UnpaidOrdersControl" VerticalAlignment="Top" Width="410" Height="248" />
+    </Grid>
+</Window>

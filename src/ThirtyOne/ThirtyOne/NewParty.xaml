@@ -1,0 +1,165 @@
+﻿<Window x:Class="ThirtyOne.NewParty"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:ThirtyOne"
+        Title="New Party" 
+        Height="587" 
+        Width="659" 
+        WindowStartupLocation="CenterScreen" 
+        Closing="Window_Closing" 
+        Background="{StaticResource MyWindowBackgroundBrush}" 
+        WindowStyle="ThreeDBorderWindow" 
+        ResizeMode="CanMinimize" Icon="/ThirtyOne;component/Images/logo.jpg">
+    
+    <Grid x:Name="WindowGrid">
+        
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="35,12,0,0" Name="PartyDatePicker" VerticalAlignment="Top" Width="165" />
+
+        <Button 
+            Name="AddButton" Height="31" 
+            HorizontalAlignment="Left" 
+            Margin="318,9,0,0"  
+            VerticalAlignment="Top" 
+            Width="120" BorderThickness="0" BorderBrush="{x:Null}" Background="{x:Null}" Click="AddButton_Click" Style="{StaticResource ButtonNoBorderStyle}">
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/ThirtyOne;component/Images/add.png" Height="28" Width="28" />
+                <TextBlock 
+                    Text="Add Order" 
+                    Height="21" 
+                    Width="80"
+                    FontWeight="Bold" 
+                    FontSize="16" 
+                    FontFamily="Segoe UI" />
+            </StackPanel>
+
+        </Button>
+
+        <Button 
+            Name="AddNewCustomerButton" 
+            Click="NewCustomerButton_Click"
+            Height="31" 
+            HorizontalAlignment="Left" 
+            Margin="442,9,0,0"  
+            VerticalAlignment="Top" 
+            Width="180" 
+            BorderThickness="0" 
+            BorderBrush="{x:Null}" 
+            Background="{x:Null}" Style="{StaticResource ButtonNoBorderStyle}">
+
+            <StackPanel Orientation="Horizontal">
+                
+                <Image 
+                    Source="/ThirtyOne;component/Images/add.png" 
+                    Height="28" 
+                    Width="28" />
+                
+                <TextBlock 
+                    Text="Add New Customer" 
+                    Height="21"
+                    Width="150"
+                    FontWeight="Bold" 
+                    FontSize="16" 
+                    FontFamily="Segoe UI" />
+                
+            </StackPanel>
+
+        </Button>
+
+        <ScrollViewer Margin="35,46,21,43" 
+            VerticalScrollBarVisibility="Auto">
+
+            <StackPanel 
+                Name="OrderStackPanel"
+                Height="167" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Width="570">
+
+                <my:OrderControl 
+                    x:Name="oc" 
+                    DeleteControl="OrderControl_DeleteControl" 
+                    TotalUpdated="OrderControl_TotalUpdated"
+                    Height="167" 
+                    Width="570" 
+                    Opacity="0"
+                    IsClosable="True" IsParty="True" />
+
+                <StackPanel.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="oc">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="oc" Storyboard.TargetProperty="Opacity" To="1" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </StackPanel.Triggers>
+            </StackPanel>
+            
+        </ScrollViewer>
+
+        <Button 
+            Background="{x:Null}" 
+            BorderBrush="{x:Null}" 
+            BorderThickness="0" 
+            Height="35" 
+            HorizontalAlignment="Left" 
+            Margin="521,513,0,0" 
+            Name="SaveButton" 
+            Click="SaveButton_Click"
+            VerticalAlignment="Top" 
+            Width="90" 
+			Style="{DynamicResource ButtonNoBorderStyle}">
+
+            <StackPanel 
+                Orientation="Horizontal" 
+                Width="90">
+
+                <Image 
+                    Height="28" 
+                    Source="/ThirtyOne;component/Images/save_icon.png" 
+                    Width="28" />
+
+                <TextBlock 
+                    Height="22" 
+                    Text="Save" 
+                    Width="50"
+                    Margin="5,0,0,0" 
+                    FontWeight="Bold" 
+                    FontSize="16" 
+                    FontFamily="Segoe UI" />
+
+            </StackPanel>
+
+        </Button>
+
+        <!--<Button 
+            Name="SaveButton" 
+            Content="Save" 
+            Click="SaveButton_Click"
+            Height="25" 
+            HorizontalAlignment="Left" 
+            Margin="481,511,0,0" 
+            VerticalAlignment="Top"
+            Width="124" />-->
+
+        <TextBlock 
+            Text="Party Total:" 
+            Height="23"
+            HorizontalAlignment="Left" 
+            Margin="372,521,0,0" 
+            VerticalAlignment="Top" />
+
+        <TextBlock 
+            Name="PartyTotalTextBlock" 
+            Text="TextBlock"
+            Height="23"
+            HorizontalAlignment="Left" 
+            Margin="442,521,0,0" 
+            VerticalAlignment="Top" 
+            Width="73"
+            Foreground="#FF3F8613" 
+            FontWeight="Bold" />
+        
+    </Grid>
+</Window>
